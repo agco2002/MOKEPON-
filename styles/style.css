@@ -1,0 +1,126 @@
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+
+    body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #041562;
+    }
+
+    #seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .titulo {
+    color: white;
+    font-size: 32px;
+    font-family: 'Fredoka One', cursive;
+    }
+
+    .subtitulo {
+    color: white;
+    font-size: 20px;
+    }
+/* colocamos la nueva clase de tarjetas ataques para el diseño responsive*/
+    .tarjetas, .tarjetas-ataques {
+    display: flex;
+    gap: 10px;
+    }
+
+    .tarjeta-de-mokepon {
+    width: 180px;
+    height: 100px;
+    background: #11468F;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    }
+
+    .tarjeta-de-mokepon img {
+    width: 80px;
+    }
+
+    #boton-mascota {
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    }
+
+    input {
+    display: none;
+    }
+    input:checked + label{
+        
+        background: red;
+    }
+
+    #seleccionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .boton-de-ataque {
+    background-color: #11468F;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 180px;
+    color: white;
+    font-family: 'Poppins', sans-serif; 
+    }
+    #mensajes {
+        width: 280px;
+        background: #EEEEEE;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #boton-reiniciar{
+        border: transparent;
+        cursor: pointer;
+        color: #11468F;
+        font-family: 'Poppins', sans-serif;
+    }
+    .ataques{
+        display: grid;
+        grid-template-columns: 150px 150px;
+        text-align: center;
+
+        
+    }
+#vidas-jugador, #vidas-enemigo {
+font-size: 32px;
+margin-bottom: 0;
+
+}
+
+/* Nos permite centrar los textos de los ataques */
+.ataques-jugador, .ataques-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+/*la primera linea nos indica el tamaño maximo de nuestro dispositivo, es decir que hasta 360px va suceder tal cosa*/
+@media (max-width: 360px){
+    /* En este espacio se colocan las nuevas clases para nuestros elementos */
+    .tarjetas, .tarjetas-ataques {
+        flex-direction: column;
+    }
+
+}
