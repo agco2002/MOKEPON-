@@ -116,6 +116,54 @@ margin-bottom: 0;
     align-items: center;
 
 }
+#ver-mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#mapa {
+    border: 3px solid #4CAF50;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #e0ffe0;
+    display: block;
+    margin: 20px auto;
+}
+.botones-direccion {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+#ver-mapa button {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#ver-mapa button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.btn-arriba { top: 0; left: 50%; transform: translateX(-50%); }
+.btn-abajo { bottom: 0; left: 50%; transform: translateX(-50%); }
+.btn-izquierda { left: 0; top: 50%; transform: translateY(-50%); }
+.btn-derecha { right: 0; top: 50%; transform: translateY(-50%); }
+
 /*la primera linea nos indica el tamaño maximo de nuestro dispositivo, es decir que hasta 360px va suceder tal cosa*/
 @media (max-width: 360px){
     /* En este espacio se colocan las nuevas clases para nuestros elementos */
