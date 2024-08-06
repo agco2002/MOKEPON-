@@ -24,6 +24,7 @@ let inputHipodoge
 let inputCapipepo
 let inputRatigueya
 let mascotaJugador
+let mascotaJugadorObjeto
 let ataquesMokepon
 let ataquesMokeponEnemigo
 let botonFuego
@@ -113,9 +114,7 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
     
     //sectionSeleccionarAtaque.style.display = 'flex'
-    sectionVerMapa.style.display='flex'
     
-    iniciarMapa()
     
     
     if (inputHipodoge.checked) {
@@ -132,6 +131,8 @@ function seleccionarMascotaJugador() {
     }
 
     extraerAtaques(mascotaJugador)
+    sectionVerMapa.style.display='flex'
+    iniciarMapa()
     seleccionarMascotaEnemigo()
 }
 
@@ -274,8 +275,8 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 function pintarCanvas(){
-    capipepo.x = capipepo.x + capipepo.velocidadX
-    capipepo.y = capipepo.y + capipepo.velocidadY
+    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
+    mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
     lienzo.clearRect(0, 0, mapa.width, mapa.height)
     lienzo.drawImage(
         mapaBackground,
@@ -285,31 +286,35 @@ function pintarCanvas(){
         mapa.height,
     )
     lienzo.drawImage(
-        capipepo.mapaFoto,
-        capipepo.x,
-        capipepo.y,
-        capipepo.ancho,
-        capipepo.alto
+        mascotaJugadorObjeto.mapaFoto,
+        mascotaJugadorObjeto.x,
+        mascotaJugadorObjeto.y,
+        mascotaJugadorObjeto.ancho,
+        mascotaJugadorObjeto.alto
     )
 }
 
+//Editamos las funciones de movimiento implementando la varible mascotaJugadorObjeto
 function moverDerecha(){
-    capipepo.velocidadX = 5
+    
+    mascotaJugadorObjeto.velocidadX = 5
 }
 
 function moverIzquierda(){
-    capipepo.velocidadX = -5
+    
+    mascotaJugadorObjeto.velocidadX = -5
 }
 function moverAbajo(){
-    capipepo.velocidadY = 5
+
+    mascotaJugadorObjeto.velocidadY = 5
 }
 function moverArriba(){
-capipepo.velocidadY= -5
+    mascotaJugadorObjeto.velocidadY= -5
 }
 
 function detenerMovimiento(){
-    capipepo.velocidadX = 0
-    capipepo.velocidadY = 0
+    mascotaJugadorObjeto.velocidadX = 0
+    mascotaJugadorObjeto.velocidadY = 0
 }
 
 //Funcion teclas 
@@ -339,6 +344,7 @@ function sePresionaUnaTecla(event){
 function iniciarMapa(){
     mapa.width = 800
     mapa.height = 500
+    mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador)
     intervalo = setInterval(pintarCanvas, 50)
  
     //Eventos de teclado
@@ -346,5 +352,15 @@ function iniciarMapa(){
     document.addEventListener('keyup', detenerMovimiento)    
 }
 
+
+function obtenerObjetoMascota(){//Retorna el objeto completo del mokepon
+
+    for (let i = 0; i < mokepones.length; i++) {
+        if (mascotaJugador === mokepones[i].nombre) {
+           
+            return mokepones[i]
+        }
+    }
+}
 
 window.addEventListener('load', iniciarJuego)
