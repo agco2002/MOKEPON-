@@ -44,6 +44,34 @@ function detenerMovimiento() {
     clearInterval(intervaloMovimiento);
 }
 
+window.addEventListener('keydown', presionarTecla)
+window.addEventListener('keyup', detenerMovimiento)
+
+function presionarTecla(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+        case 'w':
+            moverArriba()
+            break;
+            
+        case 'ArrowDown':
+        case 's':
+            moverAbajo()
+            break;
+            
+        case 'ArrowLeft':
+        case 'a':
+            moverIzquierda()
+            break;
+            
+        case 'ArrowRight':
+        case 'd':
+            moverDerecha()
+            break;
+    }
+ 
+}
+
 btnArriba.addEventListener('mousedown', () => iniciarMovimiento(moverArriba));
 btnAbajo.addEventListener('mousedown', () => iniciarMovimiento(moverAbajo));
 btnIzquierda.addEventListener('mousedown', () => iniciarMovimiento(moverIzquierda));
