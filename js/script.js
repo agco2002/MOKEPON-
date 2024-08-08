@@ -126,11 +126,6 @@ function iniciarJuego() {
 
 function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
-    
-    //sectionSeleccionarAtaque.style.display = 'flex'
-    
-    
-    
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
         mascotaJugador = inputHipodoge.id
@@ -147,7 +142,7 @@ function seleccionarMascotaJugador() {
     extraerAtaques(mascotaJugador)
     sectionVerMapa.style.display='flex'
     iniciarMapa()
-    seleccionarMascotaEnemigo()
+    
 }
 
 function extraerAtaques(mascotaJugador) {
@@ -396,7 +391,10 @@ function revisarColision(enemigo){
         return
     }
     detenerMovimiento()
-    alert("Hay colisión " + enemigo.nombre)
+    sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'none'
+    seleccionarMascotaEnemigo(enemigo)
+    //alert("Hay colisión " + enemigo.nombre)
 }
 
 window.addEventListener('load', iniciarJuego)
